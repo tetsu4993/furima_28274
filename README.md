@@ -7,9 +7,7 @@
 | nickname         | string | null:false              |
 | e-mail           | string | null:false, unique:true |
 | password         | string | null:false              |
-| birth_year       | string | null:false              |
-| birth_month      | string | null:false              |
-| birth_day        | string | null:false              |
+| birthday         | date   | null:false              |
 | family_name      | string | null:false              |
 | first_name       | string | null:false              |
 | family_name_kana | string | null:false              |
@@ -27,8 +25,8 @@ has_many :items
 | image_url    | string     | null:false          |
 | title        | string     | null:false          |
 | text         | text       | null:false          |
-| condition_id | integer    | null:false  FK:true |
-| category_id  | references | null:false, FK:true |
+| condition_id | integer    | null:false          |
+| category_id  | integer    | null:false,         |
 | fee_burden   | integer    | null:false          |
 | area_burden  | integer    | null:false          |
 | handing_time | integer    | null:false          |
@@ -43,11 +41,11 @@ has_one :purchases
 | ------------- | ------- | ------------------- |
 | items_id      | string  | null:false, FK:true |
 | prefecture_id | integer | null:false FK:true  |
-| postcode      | integer | null:false          |
+| postcode      | string  | null:false          |
 | city          | string  | null:false          |
 | block         | string  | null:false          |
 | building      | string  | null:false          |
-| phone_number  | integer | null:false          |
+| phone_number  | string  | null:false          |
 
 ### purchases assciation
 belongs_to :items
