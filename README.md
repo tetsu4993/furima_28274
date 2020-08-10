@@ -49,3 +49,10 @@ has_one :purchases
 
 ### purchases assciation
 belongs_to :items
+
+
+## order テーブル
+| Column   | Type       | Options             |
+| -------- | ---------- | ------------------- |
+| items_id | string     | null:false, FK:true |
+| user_id  | references | null:false, FK:true |
