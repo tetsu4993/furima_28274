@@ -15,44 +15,50 @@
 
 ### users association
 has_many :items
+has_one :orders
 
 
 ## items テーブル
 
 | Column       | Type       | Options             |
 | ------------ | ---------- | ------------------- |
-| user_id      | references | null:false, FK:true |
+| user         | references | null:false, FK:true |
 | image_url    | string     | null:false          |
 | title        | string     | null:false          |
 | text         | text       | null:false          |
 | condition_id | integer    | null:false          |
-| category_id  | integer    | null:false,         |
+| category_id  | integer    | null:false          |
 | fee_burden   | integer    | null:false          |
 | area_burden  | integer    | null:false          |
 | handing_time | integer    | null:false          |
 
 ### items association
 belongs_to :users
-has_one :purchases
+has_one :order
 
 ## purchases テーブル
 
 | Column        | Type    | Options             |
 | ------------- | ------- | ------------------- |
-| items_id      | string  | null:false, FK:true |
-| prefecture_id | integer | null:false FK:true  |
+| orders_id     | string  | null:false, FK:true |
+| prefecture_id | integer | null:false          |
 | postcode      | string  | null:false          |
 | city          | string  | null:false          |
 | block         | string  | null:false          |
-| building      | string  | null:false          |
+| building      | string  |                     |
 | phone_number  | string  | null:false          |
 
-### purchases assciation
-belongs_to :items
+### purchases association
+belongs_to :orders
 
 
-## order テーブル
+## orders テーブル
 | Column   | Type       | Options             |
 | -------- | ---------- | ------------------- |
-| items_id | string     | null:false, FK:true |
-| user_id  | references | null:false, FK:true |
+| items    | references | null:false, FK:true |
+| user     | references | null:false, FK:true |
+
+### orders association
+has_one :parchases
+belongs_to :users
+belongs_to :items
