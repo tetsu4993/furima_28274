@@ -14,8 +14,8 @@
 | first_name_kana  | string | null:false              |
 
 ### users association
-has_many :items
-has_one :orders
+has_many :item
+has_many :order
 
 
 ## items テーブル
@@ -33,23 +33,23 @@ has_one :orders
 | handing_time | integer    | null:false          |
 
 ### items association
-belongs_to :users
+belongs_to :user
 has_one :order
 
 ## purchases テーブル
 
-| Column        | Type    | Options             |
-| ------------- | ------- | ------------------- |
-| orders_id     | string  | null:false, FK:true |
-| prefecture_id | integer | null:false          |
-| postcode      | string  | null:false          |
-| city          | string  | null:false          |
-| block         | string  | null:false          |
-| building      | string  |                     |
-| phone_number  | string  | null:false          |
+| Column        | Type       | Options             |
+| ------------- | ---------- | ------------------- |
+| orders        | references | null:false, FK:true |
+| prefecture_id | integer    | null:false          |
+| postcode      | string     | null:false          |
+| city          | string     | null:false          |
+| block         | string     | null:false          |
+| building      | string     |                     |
+| phone_number  | string     | null:false          |
 
 ### purchases association
-belongs_to :orders
+belongs_to :order
 
 
 ## orders テーブル
@@ -59,6 +59,6 @@ belongs_to :orders
 | user     | references | null:false, FK:true |
 
 ### orders association
-has_one :parchases
-belongs_to :users
-belongs_to :items
+has_one :parchase
+belongs_to :user
+belongs_to :item
