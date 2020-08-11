@@ -5,7 +5,7 @@
 | Column           | Type   | Options                 |
 | ---------------- | ------ | ----------------------- |
 | nickname         | string | null:false              |
-| e-mail           | string | null:false, unique:true |
+| email           | string | null:false, unique:true |
 | password         | string | null:false              |
 | birthday         | date   | null:false              |
 | family_name      | string | null:false              |
@@ -40,7 +40,7 @@ has_one :order
 
 | Column        | Type       | Options             |
 | ------------- | ---------- | ------------------- |
-| orders        | references | null:false, FK:true |
+| order         | references | null:false, FK:true |
 | prefecture_id | integer    | null:false          |
 | postcode      | string     | null:false          |
 | city          | string     | null:false          |
@@ -55,7 +55,7 @@ belongs_to :order
 ## orders テーブル
 | Column   | Type       | Options             |
 | -------- | ---------- | ------------------- |
-| items    | references | null:false, FK:true |
+| item    | references | null:false, FK:true |
 | user     | references | null:false, FK:true |
 
 ### orders association
