@@ -7,9 +7,9 @@ FactoryBot.define do
     first_name             {"たかし"}
     first_name_kana        {"タカシ"}
     nickname               {"abe"}
-    birthday               {2019}
+    birthday               {Date.today}
     email                  {"kkk@email.com"}
-    password               {"0000000"}
-    password_confirmation  {"0000000"}
+    password               {"a0a0a0"}
+    password_confirmation  {"a0a0a0"}
   end
 end

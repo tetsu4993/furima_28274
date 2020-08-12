@@ -13,10 +13,10 @@ class User < ApplicationRecord
     VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/
     validates :email, format: {with: VALID_EMAIL_REGEX}
     validates :email, uniqueness: true
-    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])[a-z\d]{6}+\z/
-    validates :password, format: {with: VALID_PASSWORD_REGEX}
+    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6}+\z/
+    validates :password, format: {with: VALID_PASSWORD_REGEX, message: "Include both letters and numbers"}
     validates :password, length: {minimum: 6, message: "is too short (minimum is 6 characters)"} 
-    validates :password_confirmation, format: {with: VALID_PASSWORD_REGEX}
+    validates :password_confirmation, format: {with: VALID_PASSWORD_REGEX, message: "Include both letters and numbers"}
     validates :password_confirmation, length: {minimum: 6, message: "is too short (minimum is 6 characters)"}
     validates :family_name, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"}
     validates :first_name, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"}
