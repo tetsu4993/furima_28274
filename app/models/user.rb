@@ -10,10 +10,14 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname, format: {with: //, message: ""}
     validates :birthday, format: {with: //, message: ""}
-    validates :email, format: {with: //, message:""}
+    VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/
+    validates :email, format: {with: VALID_EMAIL_REGEX}
     validates :email, uniqueness: true
-    validates :password, format: {with: /\A[a-zA-Z0-9]+\z/, message: "include both letters and numbers"}
-    validates :password, length: { minimum: 1, message: "is too short (minimum is 6 characters)" } 
+    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])[a-z\d]{6}+\z/
+    validates :password, format: {with: VALID_PASSWORD_REGEX}
+    validates :password, length: {minimum: 6, message: "is too short (minimum is 6 characters)"} 
+    validates :password_confirmation, format: {with: VALID_PASSWORD_REGEX}
+    validates :password_confirmation, length: {minimum: 6, message: "is too short (minimum is 6 characters)"}
     validates :family_name, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"}
     validates :first_name, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"}
     validates :family_name_kana, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
