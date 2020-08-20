@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :user do
-
     family_name            {"安倍"}
     family_name_kana       {"アベ"}
     first_name             {"たかし"}
