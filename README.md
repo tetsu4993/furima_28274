@@ -23,7 +23,7 @@ has_many :order
 | Column       | Type       | Options             |
 | ------------ | ---------- | ------------------- |
 | user         | references | null:false, FK:true |
-| image_url    | string     | null:false          |
+| image_tag    | string     | null:false          |
 | title        | string     | null:false          |
 | text         | text       | null:false          |
 | condition_id | integer    | null:false          |
@@ -31,6 +31,7 @@ has_many :order
 | fee_burden   | integer    | null:false          |
 | area_burden  | integer    | null:false          |
 | handing_time | integer    | null:false          |
+| price        | integer    | null:false          |
 
 ### items association
 belongs_to :user
