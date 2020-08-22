@@ -10,7 +10,6 @@ FactoryBot.define do
     fee_burden_id            {Faker::Number.within(range: 2..3)}
     handing_time_id          {Faker::Number.within(range: 2..4)}
     association :user
-    #image                    {'spec/fixtures/files/609090330.951538.jpeg'}
     #image                     {after(:create) do |item|
                                 #item.image.attach(io: File.open('spec/fixtures/files/609090330.951538.jpeg'), filename: '609090330.951538.jpeg', content_type: 'image/jpg')
                               #end}
