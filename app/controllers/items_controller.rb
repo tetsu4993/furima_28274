@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
       @item.save
       redirect_to root_path
     else
-      flash[:notice] = '出品に失敗しました'
+      flash[:notice] = '出品に失敗しました。'
       render 'new'
     end
   end
@@ -24,8 +24,13 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
+    if item.valid? 
+      item.destroy
+      redirect_to root_path
+    else
+      flash[:notice] = '商品削除に失敗しました。'
+      render 'new'
+    end
   end
 
   def edit
@@ -34,8 +39,13 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to root_path
+    if @item.valid?
+      item.update(item_params)
+      redirect_to root_path
+    else
+      flash[:notice] = '商品情報の更新に失敗しました。'
+      render 'new'
+    end
   end
 
   private
