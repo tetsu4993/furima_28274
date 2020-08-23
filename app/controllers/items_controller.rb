@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:destroy, :update,]
+
+
   def index
     @item = Item.order("created_at DESC") 
   end
@@ -23,9 +26,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.valid? 
-      item.destroy
+    #item = Item.find(params[:id])
+    if @item.valid? 
+      @item.destroy
       redirect_to root_path
     else
       flash[:notice] = '商品削除に失敗しました。'
@@ -38,9 +41,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.valid?
-      item.update(item_params)
+    #item = Item.find(params[:id])
+    if @item.valid?
+      @item.update(item_params)
       redirect_to root_path
     else
       flash[:notice] = '商品情報の更新に失敗しました。'
@@ -53,4 +56,8 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :title, :text, :price, :category_id, :condition_id, :fee_burden_id, :area_burden_id, :handing_time_id).merge(user_id: current_user.id)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end 
 end
