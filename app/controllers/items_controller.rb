@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @item = Item.order("created_at DESC") 
   end
 
   def new
@@ -17,10 +18,25 @@ class ItemsController < ApplicationController
     end
   end
 
-  #def tax
-    #item = Item.find(params[:id])
-    #tax = item_params(price) * 0.1
-  #end
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to root_path
+  end
 
   private
 
