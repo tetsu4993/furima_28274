@@ -60,6 +60,6 @@ belongs_to :order
 | user     | references | null:false, FK:true |
 
 ### orders association
-has_one :parchase
+has_one :purchase
 belongs_to :user
 belongs_to :item

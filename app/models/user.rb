@@ -23,6 +23,4 @@ class User < ApplicationRecord
     validates :family_name_kana, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
     validates :first_name_kana, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
   end
-
-  
 end

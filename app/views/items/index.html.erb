@@ -130,6 +130,11 @@
           <div class="item-image">
             <%= link_to item_path(item.id) do %>
               <%= image_tag item.image, class:'item-img' if item.image.attached? %>
+                <%if item.order != nil %>
+                  <div class='sold-out'>
+                    <span>Sold Out!!</span>
+                  </div>
+                <% end %>
             <% end %>
           </div>
           <div class="item-title">
@@ -140,11 +145,6 @@
           </div>
           <%= '(税込み)' %>
         </div>
-        <%if item.order != nil%>
-          <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-        <% end %>
       <% end %>
     </div>
     <ul class='item-lists'>
