@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Purchase, type: :model do
+RSpec.describe OrderPurchase, type: :model do
   before do
-    @purchase = build(:purchase)
+    @purchase = build(:order_purchase)
     # @purchase.token = "whook_3cac81b60d38911bdf8d846799'
   end
 
@@ -28,7 +28,6 @@ RSpec.describe Purchase, type: :model do
       it "phonenumberないとダメ" do
         @purchase.phonenumber = nil
         @purchase.valid?
-        binding.pry
         expect(@purchase.errors[:phonenumber])
       end
   
@@ -62,11 +61,11 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase.errors[:postcode])
       end
       
-      # it "tokenがないとダメ" do
-      #   @purchase.token = nil
-      #   @@urchase.valid?
-      #   expect(@purchase.errors[:token])
-      #end
+      it "tokenがないとダメ" do
+        @purchase.token = nil
+        @purchase.valid?
+        expect(@purchase.errors[:token])
+      end
     end
   end
 end
