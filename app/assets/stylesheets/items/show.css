@@ -204,3 +204,18 @@
   font-weight: bold;
   font-size: 23px;
 }
+.sold-out2>span {
+  color: #FFF;
+  font-size: 45px;
+  width: 60vw;
+  font: bold;
+}
+
+.sold-out2 {
+  position: absolute;
+  top: 40%;
+  width: 90.4vh;
+  text-align: center;
+  background-color: crimson;
+  transform: skewY(-10deg);
+}
