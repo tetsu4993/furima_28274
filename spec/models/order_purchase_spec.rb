@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Purchase, type: :model do
+RSpec.describe OrderPurchase, type: :model do
   before do
-    @purchase = build(:purchase)
+    @purchase = build(:order_purchase)
   end
 
   describe '商品出品' do
     context '購入がうまくいくとき' do
-      # binding.pry
       it "titleやtextなどが存在すれば登録できる" do
         expect(@purchase).to be_valid
       end
@@ -27,7 +26,6 @@ RSpec.describe Purchase, type: :model do
       it "phonenumberないとダメ" do
         @purchase.phonenumber = nil
         @purchase.valid?
-        binding.pry
         expect(@purchase.errors[:phonenumber])
       end
   
@@ -59,6 +57,12 @@ RSpec.describe Purchase, type: :model do
         @purchase.postcode = 123-4567
         @purchase.valid?
         expect(@purchase.errors[:postcode])
+      end
+      
+      it "tokenがないとダメ" do
+        @purchase.token = nil
+        @purchase.valid?
+        expect(@purchase.errors[:token])
       end
     end
   end
