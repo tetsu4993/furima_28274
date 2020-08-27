@@ -3,12 +3,10 @@ require 'rails_helper'
 RSpec.describe OrderPurchase, type: :model do
   before do
     @purchase = build(:order_purchase)
-    # @purchase.token = "whook_3cac81b60d38911bdf8d846799'
   end
 
   describe '商品出品' do
     context '購入がうまくいくとき' do
-      # binding.pry
       it "titleやtextなどが存在すれば登録できる" do
         expect(@purchase).to be_valid
       end

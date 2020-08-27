@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Purchase, type: :model do
   before do
     @purchase = build(:purchase)
-    # @purchase.token = "whook_3cac81b60d38911bdf8d846799'
   end
 
   describe '商品出品' do
@@ -61,12 +60,6 @@ RSpec.describe Purchase, type: :model do
         @purchase.valid?
         expect(@purchase.errors[:postcode])
       end
-      
-      # it "tokenがないとダメ" do
-      #   @purchase.token = nil
-      #   @@urchase.valid?
-      #   expect(@purchase.errors[:token])
-      #end
     end
   end
 end
