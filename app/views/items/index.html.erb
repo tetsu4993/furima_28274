@@ -209,11 +209,11 @@
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
   <% if user_signed_in? %>
-    <%= link_to user_session_path, class: "login" %>
+    <a href="https://furima-28274.herokuapp.com/items/new">
       <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
     </a>
   <% else %>
-    <a href="http://localhost:3000/users/sign_in">
+    <a href="https://furima-28274.herokuapp.com/users/sign_in">
       <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
     </a>
   <% end %>
