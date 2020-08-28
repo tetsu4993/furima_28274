@@ -214,7 +214,7 @@
 .sold-out2 {
   position: absolute;
   top: 40%;
-  width: 90.4vh;
+  width: 100%;
   text-align: center;
   background-color: crimson;
   transform: skewY(-10deg);
