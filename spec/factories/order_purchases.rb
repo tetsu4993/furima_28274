@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :order_purchase do
-
     prefecture_id            {Faker::Number.within(range: 2..48)}
     postcode                 {"123-4567"}
     city                     {"大阪市"}
